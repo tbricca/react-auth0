@@ -13,9 +13,13 @@ window.setState = (changes) => {
     // using object.assign so we don't mutuate the actual state
     state = Object.assign({}, state, changes);
 
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.render(<App {...state}/>, document.getElementById('root'));
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let initialState = {
+    name: "Tony"
+};
+
+window.setState(initialState);
 
 serviceWorker.unregister();
